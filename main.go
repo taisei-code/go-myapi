@@ -13,9 +13,14 @@ func main () {
 		io.WriteString(w, "Hello, world!\n")
 	}
 
+	postArticleHandler := func(w http.ResponseWriter, req *http.Request) {
+		io.WriteString(w, "Posting Article...\n")
+	}
+
 	// 定義したハンドラをサーバーで使う登録
 	// http.HandleFunc("/", helloHandler)
 	http.HandleFunc("/hello", helloHandler)
+	http.HandleFunc("/article", postArticleHandler)
 
 	// サーバー起動時のログ出力
 	log.Println("server start at port 8080")
