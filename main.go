@@ -13,7 +13,7 @@ func main () {
 	r := mux.NewRouter()
 
 	// 定義したハンドラをサーバーで使う登録
-	r.HandleFunc("/hello", handlers.HelloHandler)
+	r.HandleFunc("/hello", handlers.HelloHandler).Methods(http.MethodGet)
 	r.HandleFunc("/article", handlers.PostArticleHandler)
 	r.HandleFunc("/article/list", handlers.ArticleListHandler)
 	r.HandleFunc("/article/1", handlers.ArticleDetailHandler)
